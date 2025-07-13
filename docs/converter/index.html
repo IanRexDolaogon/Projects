@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word to PDF Converter</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Mammoth.js for reading Word files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.7.0/mammoth.browser.min.js"></script>
+    <!-- jsPDF for creating PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+      <h1>Word to PDF Converter</h1>
+
+      <div class="file-upload">
+        <label for="wordFile" style="display:none;">Choose Word File</label>
+        <input type="file" id="wordFile" accept=".doc,.docx" style="display:none;">
+        <button id="chooseFileBtn" type="button">Choose File</button> 
+        <span id="selectedFile">No file chosen</span>
+        <button onclick="handleFile()">Convert to PDF</button>     
+      </div>
+
+      <p class="warning">
+        Note: Only text will be converted. Images and formatting are not supported.
+      </p>
+      <p id="fileSize"></p>
+    </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <p>PDF created and downloaded!</p>
+        </div>
+    </div>
+
+    <div id="popupError" class="popup">
+        <div class="popup-content">
+            <span id="closePopupError" class="close">&times;</span>
+            <p>Error creating PDF!</p>
+        </div>
+    </div>
+    
+    <script src="converter.js"></script>
+  </body>
+</html>
